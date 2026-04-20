@@ -1,0 +1,138 @@
+/* PNCHR Intel — shared stylesheet.
+ * Source of truth lives in gaby/templates/style.css; Gaby copies this file
+ * to PNCHR-intel/style.css on each publish. Both briefing and index pages
+ * link to it.
+ */
+
+:root {
+  --bg: #0A0A0A;
+  --text: #F0EEE8;
+  --muted: #8A8781;
+  --lime: #C8FF00;
+  --pink: #FF2E63;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  margin: 0;
+  padding: 2rem 1.25rem;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+
+.wrap { max-width: 640px; margin: 0 auto; }
+
+.tag {
+  display: inline-block;
+  background: var(--pink);
+  color: #FFF;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+}
+
+.date {
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 30rem;
+  margin: 0 0 2.5rem;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  margin: 0 0 2rem;
+  color: var(--lime);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  color: var(--lime);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 2.5rem 0 1rem;
+}
+
+/* Briefing — news items */
+.news-item { margin-bottom: 1.25rem; }
+.headline { color: var(--text); }
+.why { color: var(--muted); font-size: 0.95rem; }
+.source {
+  color: var(--pink);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  margin-top: 0.1rem;
+}
+
+/* Briefing — race rows */
+.race-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+  align-items: baseline;
+}
+.race-date { color: var(--muted); min-width: 6rem; font-size: 0.85rem; }
+.race-name { color: var(--text); }
+.race-note { color: var(--muted); font-size: 0.9rem; }
+
+/* Briefing — PNCHR-moment */
+.pnchr {
+  border-left: 2px solid var(--lime);
+  padding-left: 1rem;
+}
+
+.sign-off {
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 3rem;
+}
+
+.home-link {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 3rem;
+  display: block;
+  text-decoration: none;
+}
+
+/* Index — archive list */
+.latest {
+  margin-bottom: 2.5rem;
+}
+.latest .date { margin-bottom: 0.25rem; }
+.latest a {
+  color: var(--lime);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.archive { list-style: none; padding: 0; margin: 0; }
+.archive li { margin-bottom: 0.5rem; }
+.archive a {
+  color: var(--text);
+  text-decoration: none;
+}
+.archive .date {
+  display: inline-block;
+  min-width: 7rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-right: 1rem;
+}
+
+@media (max-width: 480px) {
+  .race-row { flex-direction: column; gap: 0.1rem; }
+  .race-date { min-width: 0; }
+  .archive .date { min-width: 0; display: block; margin-right: 0; }
+}
