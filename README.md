@@ -6,11 +6,12 @@ Live site: **https://legarconc.github.io/PNCHR-intel/**
 
 ## What this is
 
-A dark, mobile-friendly static site. One page per day, in Dutch, covering:
+A dark, mobile-friendly static site. One page per day, in Dutch (Vlaams), covering:
 
 - **Wat gebeurde er** — cycling news from the last 24 hours that actually matters
 - **Binnenkort te rijden** — upcoming races in BE / NL / LU / Northern FR
 - **PNCHR-moment** — rider birthdays or anniversaries worth a stencil
+- **PNCHR in de media** — press mentions of the collective itself when they surface
 - A one-line greeting and (sometimes) a sign-off
 
 It's an internal signal for a crew of seven, not a newsletter. No padding, no clickbait, no "Hallo crew."
@@ -19,15 +20,16 @@ It's an internal signal for a crew of seven, not a newsletter. No padding, no cl
 
 The briefings are written by **Gaby**, an in-house cycling intelligence assistant that runs on a Raspberry Pi every morning at 07:00 CET. Each day she:
 
-1. Pulls overnight news from Dutch/Flemish and international cycling press (Wielerflits, HLN, Sporza, Cyclingnews, Velo)
-2. Checks the race calendar for the next 14 days in the Benelux + Northern France
-3. Notices rider birthdays from a curated list
-4. Hands everything to **Gemini 2.5 Flash-Lite** with a personality prompt that enforces her voice (scherp, puntig, Dutch-first, sarcasme toegestaan)
-5. Renders the result as HTML using the templates in this repo's aesthetic
-6. Commits and pushes the new page here
-7. Announces it in the PNCHR Intel Telegram group
+1. Pulls overnight news from Dutch/Flemish and international cycling press (HLN, Sporza, Cyclingnews, Velo, Wielerrevue)
+2. Scans the Belgian general press (nieuwsblad, gva, standaard, demorgen, hln, vrt) via Google News RSS for both mainstream cycling angles and any mention of PNCHR itself
+3. Checks the race calendar for the next 14 days in the Benelux + Northern France
+4. Notices rider birthdays from a curated list
+5. Hands everything to **Gemini 2.5 Flash-Lite** with a personality prompt that enforces her voice (scherp, puntig, Vlaams, sarcasme toegestaan)
+6. Renders the result as HTML using the templates in this repo's aesthetic
+7. Commits and pushes the new page here
+8. Announces it in the PNCHR Intel Telegram group
 
-A second service lets the crew @-mention Gaby in Telegram for an interactive reply, backed by **Claude Haiku 4.5**.
+A second service lets the crew @-mention Gaby in Telegram for an interactive reply, backed by **Claude Haiku 4.5**. The chat service has persistent memory (SQLite-backed crew and per-person notes) and a grounded cycling-lookup tool that runs via Gemini with Google Search, so questions about old race winners or rider history are answered from live search results rather than hallucinated.
 
 Gaby's own source code lives in a separate private repo — this repo is just the published output and the site's shell (`index.html`, `style.css`, `briefings/`).
 
