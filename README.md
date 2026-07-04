@@ -33,6 +33,23 @@ A second service lets the crew @-mention Gaby in Telegram for an interactive rep
 
 Gaby's own source code lives in a separate private repo — this repo is just the published output and the site's shell (`index.html`, `style.css`, `briefings/`).
 
+## Maintainer Notes
+
+This repo is normally updated by Gaby from `~/projects/gaby` on the Raspberry
+Pi. For manual site-shell or docs changes:
+
+```bash
+cd ~/projects/PNCHR-intel
+git status --short
+git add <changed files>
+git commit -m "Describe the change"
+git push origin main
+```
+
+Keep the worktree clean before the 07:00 briefing run. Gaby preflights this
+repo before publishing and refuses to write a new briefing if local changes or
+unpushed commits are present.
+
 ## Structure
 
 ```
