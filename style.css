@@ -75,6 +75,7 @@ h2 {
   letter-spacing: 0.1em;
   margin-top: 0.1rem;
 }
+.source a { text-decoration: none; }
 
 /* Briefing — race rows */
 .race-row {
